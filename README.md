@@ -26,3 +26,14 @@ This project is currently in early setup phase.
 ✅ Dependencies defined  
 
 ⏳ Local execution and RAG pipeline implementation will be added next.
+
+## 🛣️ Roadmap
+
+- [x] Initialize repository and project structure
+- [x] Add FastAPI skeleton
+- [ ] Run FastAPI server locally
+- [ ] Add document ingestion
+- [ ] Implement embeddings
+- [ ] Add retrieval pipeline
+- [ ] Connect LLM for answer generation
+- [ ] Add API documentation and screenshots
