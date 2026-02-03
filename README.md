@@ -16,3 +16,13 @@ Day 1 – Repository setup and README initialization ✅
 
 ## 📅 Learning Goal
 Build a production-style GenAI backend while learning step-by-step.
+
+## 🚧 Development Status
+
+This project is currently in early setup phase.
+
+✅ Repository initialized  
+✅ FastAPI project structure created  
+✅ Dependencies defined  
+
+⏳ Local execution and RAG pipeline implementation will be added next.
