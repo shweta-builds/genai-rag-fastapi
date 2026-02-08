@@ -37,3 +37,9 @@ This project is currently in early setup phase.
 - [ ] Add retrieval pipeline
 - [ ] Connect LLM for answer generation
 - [ ] Add API documentation and screenshots
+
+## Project Status
+- Python virtual environment setup
+- FastAPI backend initialized
+- Health check endpoint
+- Mock AI question endpoint
