@@ -9,3 +9,10 @@ def root():
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
+
+@app.post("/ask")
+def ask_question(question: str):
+    return {
+        "question": question,
+        "answer": "This is a placeholder answer. LLM will come later."
+    }
