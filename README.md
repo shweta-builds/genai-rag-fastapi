@@ -43,3 +43,8 @@ This project is currently in early setup phase.
 - FastAPI backend initialized
 - Health check endpoint
 - Mock AI question endpoint
+
+## Current Progress
+- PDF ingestion and text extraction completed
+- FastAPI project structure setup
+- Ready for chunking and embeddings
