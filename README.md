@@ -12,21 +12,7 @@ It will gradually evolve into a **GenAI RAG (Retrieval-Augmented Generation)** s
 - LLM (OpenAI / Llama)
 
 ## 📂 Project Structure
-
-genai-rag-fastapi/
-│
-├── app/
-│   ├── services/
-│   │   ├── document_loader.py
-│   │   ├── text_chunker.py
-│   │
-│   └── main.py
-│
-├── data/
-│   └── simple.pdf
-│
-├── requirements.txt
-└── README.md
+<pre> ```bash genai-rag-fastapi/ │ ├── app/ │ ├── services/ │ │ ├── document_loader.py │ │ ├── text_chunker.py │ │ │ └── main.py │ ├── data/ │ └── simple.pdf │ ├── requirements.txt └── README.md ``` </pre>
 
 ## 📅 Learning Goal
 Build a production-style GenAI backend while learning step-by-step.
