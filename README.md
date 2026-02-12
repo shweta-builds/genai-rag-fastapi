@@ -4,9 +4,6 @@
 This project is a backend service built using FastAPI.  
 It will gradually evolve into a **GenAI RAG (Retrieval-Augmented Generation)** system that can answer questions from documents.
 
-## 🚀 Current Status
-Day 1 – Repository setup and README initialization ✅
-
 ## 🛠 Tech Stack (Planned)
 - Python
 - FastAPI
@@ -14,37 +11,52 @@ Day 1 – Repository setup and README initialization ✅
 - Vector Database (FAISS / Chroma)
 - LLM (OpenAI / Llama)
 
+## 📂 Project Structure
+
+genai-rag-fastapi/
+│
+├── app/
+│   ├── services/
+│   │   ├── document_loader.py
+│   │   ├── text_chunker.py
+│   │
+│   └── main.py
+│
+├── data/
+│   └── simple.pdf
+│
+├── requirements.txt
+└── README.md
+
 ## 📅 Learning Goal
 Build a production-style GenAI backend while learning step-by-step.
 
-## 🚧 Development Status
+## 🚀Project Status
 
-This project is currently in early setup phase.
-
-✅ Repository initialized  
-✅ FastAPI project structure created  
-✅ Dependencies defined  
-
-⏳ Local execution and RAG pipeline implementation will be added next.
-
-## 🛣️ Roadmap
-
-- [x] Initialize repository and project structure
-- [x] Add FastAPI skeleton
-- [ ] Run FastAPI server locally
-- [ ] Add document ingestion
-- [ ] Implement embeddings
-- [ ] Add retrieval pipeline
-- [ ] Connect LLM for answer generation
-- [ ] Add API documentation and screenshots
-
-## Project Status
+### Phase 0 – Backend Setup ✅
 - Python virtual environment setup
 - FastAPI backend initialized
 - Health check endpoint
 - Mock AI question endpoint
 
-## Current Progress
-- PDF ingestion and text extraction completed
-- FastAPI project structure setup
-- Ready for chunking and embeddings
+### Phase 1 – Document Processing ✅
+- PDF ingestion completed
+- Text extraction working
+- Recursive text chunking implemented
+- Sample PDF tested successfully
+- Project structured for RAG pipeline
+
+### Phase 2 – Vector Search (In Progress 🚧)
+- Generate embeddings for chunks
+- Store embeddings in FAISS vector database
+- Implement semantic search
+
+## 🛣️ Roadmap
+- [x] Initialize repository and project structure
+- [x] Add FastAPI skeleton
+- [x] Run FastAPI server locally
+- [x] Add document ingestion
+- [ ] Implement embeddings
+- [ ] Add retrieval pipeline
+- [ ] Integrate LLM for answer generation
+- [ ] Add API documentation and screenshots
