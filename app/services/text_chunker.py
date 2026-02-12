@@ -1,0 +1,36 @@
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from pathlib import Path
+from pypdf import PdfReader
+
+from app.services.pdf_reader import BASE_DIR, PDF_PATH
+
+
+def chunk_text(text: str, chunk_size: int = 500, chunk_overlap: int = 50):
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size = chunk_size,
+        chunk_overlap = chunk_overlap
+    )
+
+    chunks = splitter.split_text(text)
+    return chunks
+
+if __name__ == "__main__":
+    #locate project root
+    BASE_DIR = Path(__file__).resolve().parents[2]
+    PDF_PATH =  BASE_DIR / "data" / "simple.pdf"
+
+    #Read PDF
+    reader = PdfReader(PDF_PATH)
+    text = ""
+
+    for page in reader.pages:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text
+
+    #chunk the extracted text
+    chunks = chunk_text(text)
+
+    print(f"\nTotal Chunks: {len(chunks)}\n")
+    print("First 2 Chunks:\n")
+    print(chunks[:2])
