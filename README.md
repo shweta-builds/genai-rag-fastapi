@@ -60,3 +60,33 @@ Build a production-style GenAI backend while learning step-by-step.
 - [ ] Add retrieval pipeline
 - [ ] Integrate LLM for answer generation
 - [ ] Add API documentation and screenshots
+
+## ▶️ How to Run
+1. Clone the repository
+
+   git clone https://github.com/your-username/genai-rag-fastapi.git
+   cd genai-rag-fastapi
+
+2. Create virtual environment
+
+   python -m venv venv
+
+3. Activate virtual environment
+
+   On Windows:
+   venv\Scripts\activate
+
+   On Mac/Linux:
+   source venv/bin/activate
+
+4. Install dependencies
+
+   pip install -r requirements.txt
+
+5. Run FastAPI server
+
+   uvicorn app.main:app --reload
+
+6. Open in browser
+
+   http://127.0.0.1:8000/docs
