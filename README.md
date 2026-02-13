@@ -17,10 +17,13 @@ genai-rag-fastapi/
 │
 ├── app/
 │   ├── services/
+│   │   ├── pdf_reader.py
 │   │   ├── document_loader.py
 │   │   ├── text_chunker.py
+│   │   ├── vector_store.py
 │   │
-│   └── main.py
+│   ├── main.py
+│   └── test_semantic_search.py
 │
 ├── data/
 │   └── simple.pdf
@@ -47,10 +50,10 @@ Build a production-style GenAI backend while learning step-by-step.
 - Sample PDF tested successfully
 - Project structured for RAG pipeline
 
-### Phase 2 – Vector Search (In Progress 🚧)
-- Generate embeddings for chunks
-- Store embeddings in FAISS vector database
-- Implement semantic search
+### Phase 2 – Vector Search ✅
+- Embedding model integrated (MiniLM)
+- FAISS vector store created
+- Semantic similarity search working
 
 ## 🛣️ Roadmap
 - [x] Initialize repository and project structure
