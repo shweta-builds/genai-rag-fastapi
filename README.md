@@ -54,6 +54,8 @@ Build a production-style GenAI backend while learning step-by-step.
 - Embedding model integrated (MiniLM)
 - FAISS vector store created
 - Semantic similarity search working
+- /ask API endpoint added
+- Multi-PDF ingestion support added
 
 ## 🛣️ Roadmap
 - [x] Initialize repository and project structure
