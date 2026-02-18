@@ -26,7 +26,9 @@ genai-rag-fastapi/
 │   └── test_semantic_search.py
 │
 ├── data/
-│   └── simple.pdf
+    ├── Notes.pdf
+│   ├── Report.pdf
+    └── simple.pdf
 │
 ├── requirements.txt
 └── README.md
@@ -51,21 +53,30 @@ Build a production-style GenAI backend while learning step-by-step.
 - Project structured for RAG pipeline
 
 ### Phase 2 – Vector Search ✅
-- Embedding model integrated (MiniLM)
+- Embeddings integrated (MiniLM)
 - FAISS vector store created
 - Semantic similarity search working
-- /ask API endpoint added
-- Multi-PDF ingestion support added
+- `/ask` API endpoint created
+- Source tracking for answers added
+
+### Phase 3 – LLM Integration (Next 🚧)
+- Connect LLM for answer generation
+- Save FAISS index to disk
+- Add PDF upload API
+- Deploy project
 
 ## 🛣️ Roadmap
 - [x] Initialize repository and project structure
 - [x] Add FastAPI skeleton
 - [x] Run FastAPI server locally
 - [x] Add document ingestion
-- [ ] Implement embeddings
-- [ ] Add retrieval pipeline
+- [x] Implement embeddings
+- [x] Add retrieval pipeline (FAISS semantic search)
 - [ ] Integrate LLM for answer generation
+- [ ] Save FAISS index to disk
 - [ ] Add API documentation and screenshots
+- [ ] Add PDF upload API
+- [ ] Deploy project on cloud
 
 ## ▶️ How to Run
 1. Clone the repository
