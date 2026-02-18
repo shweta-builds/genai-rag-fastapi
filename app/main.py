@@ -16,18 +16,27 @@ class QuestionRequest(BaseModel):
 
 # Load PDF and prepare vector store at startup
 BASE_DIR = Path(__file__).resolve().parent.parent
-PDF_PATH = BASE_DIR / "data" / "sample.pdf"
+DATA_PATH = BASE_DIR / "data"
 
-reader = PdfReader(PDF_PATH)
-text = ""
+chunks_with_sources = []
 
-for page in reader.pages:
-    page_text = page.extract_text()
-    if page_text:
-        text += page_text
+for pdf_file in DATA_PATH.glob("*.pdf"):
+    print(f"Loading {pdf_file.name}")
 
-chunks = chunk_text(text, chunk_size=200, chunk_overlap=20)
-vector_store = create_vector_store(chunks)
+    reader = PdfReader(pdf_file)
+    text = ""
+
+    for page in reader.pages:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text + "\n"
+
+    chunks = chunk_text(text, chunk_size=200, chunk_overlap=20)
+
+    for c in chunks:
+        chunks_with_sources.append((c, pdf_file.name))
+
+vector_store = create_vector_store(chunks_with_sources)
 
 @app.get("/")
 def home():
@@ -42,7 +51,8 @@ def ask_question(request: QuestionRequest):
     if results:
         return {
             "question": request.question,
-            "answer": results[0].page_content
+            "answer": results[0].page_content,
+            "source": results[0].metadata["source"]
         }
 
     return {"answer": "No relevant information found."}
