@@ -58,6 +58,7 @@ Build a production-style GenAI backend while learning step-by-step.
 - Semantic similarity search working
 - `/ask` API endpoint created
 - Source tracking for answers added
+- Persistent FAISS index storage implemented
 
 ### Phase 3 – LLM Integration (Next 🚧)
 - Connect LLM for answer generation
