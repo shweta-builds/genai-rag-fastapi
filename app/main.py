@@ -2,12 +2,15 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from pathlib import Path
 from pypdf import PdfReader
+import os
+from app.services.vector_store import (
+create_vector_store, search_similar, save_vector_store, load_vector_store
+)
 
 from app.services.text_chunker import chunk_text
 from app.services.vector_store import create_vector_store, search_similar
 
 app = FastAPI()
-
 
 # Request model
 class QuestionRequest(BaseModel):
@@ -17,6 +20,7 @@ class QuestionRequest(BaseModel):
 # Load PDF and prepare vector store at startup
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_PATH = BASE_DIR / "data"
+INDEX_PATH = BASE_DIR / "faiss_index"
 
 chunks_with_sources = []
 
@@ -36,7 +40,13 @@ for pdf_file in DATA_PATH.glob("*.pdf"):
     for c in chunks:
         chunks_with_sources.append((c, pdf_file.name))
 
-vector_store = create_vector_store(chunks_with_sources)
+if os.path.exists(INDEX_PATH):
+    print("Loading existing FAISS index...")
+    vector_store = load_vector_store(INDEX_PATH)
+else:
+    print("Creating new FAISS index...")
+    vector_store = create_vector_store(chunks_with_sources)
+    save_vector_store(vector_store, str(INDEX_PATH))
 
 @app.get("/")
 def home():

@@ -21,3 +21,17 @@ def create_vector_store(chunks_with_sources):
 def search_similar(vector_store, query: str, k: int = 2):
     results = vector_store.similarity_search(query, k=k)
     return results
+
+def save_vector_store(vector_store, path="faiss_index"):
+    vector_store.save_local(path)
+    embeddings = HuggingFaceEmbeddings(
+        model_name = "sentence-transformers/all-MiniLM-L6-v2"
+    )
+
+def load_vector_store(path="faiss_index"):
+    embeddings = HuggingFaceEmbeddings(
+        model_name ="sentence-transformers/all-MiniLM-L6-v2"
+    )
+    return FAISS.load_local(path, embeddings, allow_dangerous_deserialization=True)
+
+
